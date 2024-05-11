@@ -1,0 +1,913 @@
+/*========================基本設定=======================*/
+body{
+	font-family: "Roboto", sans-serif;
+	color: #333333;
+	background-color: #f2f2f2;
+	margin: auto;
+}
+
+main{
+	font-family: "Roboto", sans-serif;
+}
+
+.sub_main{
+	margin-left: 7%;
+	margin-right: 5%;
+	margin-top: 150px;
+}
+
+.html_title p{
+	line-height: 25px;
+}
+
+.html_title_en{
+	font-size: 40px;
+	font-weight: 400;
+	color: #333333;
+}
+
+.html_title_ja{
+	font-size: 12px;
+	color: #949494;
+}
+
+/*========================TOP=======================*/
+#top{
+    width: 100%;
+    height: 100vh;
+	position: relative;
+}
+
+#top img{
+	position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+
+/*=== 9-1-2 丸が動いてスクロールを促す ====*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown2{
+    /*描画位置※位置は適宜調整してください*/
+	position:absolute;
+	bottom:10px;
+	left:50%;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown2 span{
+    /*描画位置*/
+	position: absolute;
+	left:10px;
+	bottom:10px;
+    /*テキストの形状*/
+	color: #eee;
+	font-size: 0.7rem;
+	letter-spacing: 0.05em;
+	/*縦書き設定*/
+	-ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom:0;
+    left:-4px;
+    /*丸の形状*/
+	width:10px;
+	height:10px;
+	border-radius: 50%;
+	background:#eee;
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+	animation:
+		circlemove 1.6s ease-in-out infinite,
+		cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+      0%{bottom:45px;}
+     100%{bottom:-5px;}
+ }
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+      0%{opacity:0}
+     50%{opacity:1;}
+    80%{opacity:0.9;}
+	100%{opacity:0;}
+ }
+
+/* 線の描写 */
+.scrolldown2:after{
+	content:"";
+    /*描画位置*/
+	position: absolute;
+	bottom:0;
+	left:0;
+    /*線の形状*/
+	width:2px;
+	height: 50px;
+	background:#eee;
+}
+
+/*========================top_news=======================*/
+#top_news{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+}
+
+.top_news_left{
+	width: 15%;
+}
+
+.top_news_center{
+	width: 70%;
+}
+
+.top_news_right{
+	width: 15%;
+}
+.news-list{
+	list-style: none outside;
+	margin: 0;
+	padding: 0;
+  }
+  .news-list .item a{
+	display: flex;
+	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	text-decoration: none;
+	color: #333;
+	border-bottom: 1px solid #CCC;
+	padding: 20px 20px;
+  }
+  .news-list .item:first-child a{
+	border-top: 1px solid #CCC;
+  }
+  .news-list .item .date{
+	margin: 0;
+	min-width: 140px;
+	font-size: 16px;
+	color: #999;
+	padding: 0 20px 0 0;
+  }
+  .news-list .item .category{
+	margin: 0;
+	min-width: 140px;
+	padding: 0 20px 0 0;
+  }
+  .news-list .item .category span{
+	background: #999;
+	color: #FFF;
+	text-align: center;
+	display: inline-block;
+	padding: 5px 20px;
+	font-size: 12px;
+	line-height: 1;
+  }
+  .news-list .item .title{
+	margin: 0;
+	width: 100%;
+  }
+  .news-list .item a:hover .title{
+	color: rgb(0, 0, 0);
+  }
+  
+  @media screen and (max-width: 767px){
+  .news-list .item a{
+	flex-wrap: wrap;
+  }
+  .news-list .item .date{
+	min-width: 100px;
+  }
+  .news-list .item .title{
+	margin-top: 10px;
+  }
+  }
+
+  @media screen and (max-width: 520px){
+	.top_news_left{
+		width: 5%;
+	}
+	.top_news_center{
+		width: 90%;
+	}
+	.top_news_right{
+		width: 5%;
+	}
+	}
+
+
+/*きらっと光る*/
+
+.btnshine{
+    /*キラッと光る基点とするためrelativeを指定*/
+	position: relative;
+	float: right;
+    /*ボタンの形状*/	
+    background: #999;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    outline: none;
+    overflow: hidden;
+	margin-top: 20px;
+	border: 25px;
+	border-radius: 25px;
+}
+
+/*キラッと光る*/
+.btnshine::before {
+	content: '';
+    /*絶対配置でキラッと光るの位置を決める*/
+	position: absolute;
+	top: 0;
+	left: -75%;
+    /*キラッと光る形状*/
+    width: 50%;
+	height: 100%;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+	transform: skewX(-25deg);
+}
+
+/*hoverした際の移動のアニメーション*/
+.btnshine:hover::before {
+	animation: shine 0.7s;
+}
+
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+/*========================top_company_info=======================*/
+#top_company{
+	height: 100vh;
+	width: 100%;
+}
+
+.smartphone_ja{
+	display: none;
+}
+
+.top_company_info{
+	display: flex;
+}
+
+.top_company_left{
+	width: 40%;
+}
+
+.top_company_title{
+	margin-left: 20%;
+	margin-top: 10%;
+}
+
+.top_company_title p{
+	line-height: 25px;
+}
+
+.top_company_title img{
+	width: 500px;
+	margin-top: 50px;
+}
+
+.top_company_title_mefar{
+	font-size: 90px;
+}
+
+.top_company_title_vision{
+	font-size: 15px;
+	color: #949494;
+	
+}
+
+.top_company_contents{
+	width: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.top_company_contents table{
+	width: 72%;
+}
+
+.top_company_contents tr{
+	
+	height: 80px;
+}
+
+.top_company_contents th{
+    border-bottom: 1px solid #999999;
+	vertical-align: initial;
+}
+
+.mefar_name_top{
+	font-size: 20px;
+	text-align: left;
+	letter-spacing: 3px;
+}
+
+.mefar_name_top::first-letter{
+	font-size: 40px;
+}
+
+.mefar_name_ja{
+	color: #C3C3C3;
+	text-align: right;
+}
+
+/*丸がボタンに変形する*/
+
+.btntransform{
+    /*丸の基点とするためrelativeを指定*/
+	position: relative;
+    /*ボタンの形状*/	
+    display: inline-block;
+	padding:0 0 0 15px;
+	line-height: 50px;
+    text-decoration: none;
+    outline: none;
+	margin-top: 50px;
+	color: #333333;
+}
+
+/* 丸が動く */
+.btntransform::before{
+	content:'';
+    /*絶対配置で丸の位置を決める*/
+	position:absolute;
+	left:0;
+	z-index: -1;
+    /*丸の形状*/
+	width:50px;
+	height:50px;
+	background:#ccc;
+	border-radius:25px;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の形状*/
+.btntransform:hover::before{
+	width:212px;
+	background-color: #333;
+}
+
+.btntransform:hover {
+    color: #ffffff; /* ホバー時のテキスト色 */
+}
+
+
+/* 矢印の形状 */
+.btntransform::after{
+	position: absolute;
+    content: '';
+    top: 1.45em;
+    right: -15px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    transform: rotate(45deg);
+}
+
+.btntransform:hover::after{
+	border-top: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+}
+
+
+
+@media screen and (max-width: 690px){
+	#top_company{
+		width: 100%;
+	}
+	.top_company_info{
+		display: inline-block;
+		width: 100%;
+	}
+	.top_company_left{
+		width: 100%;
+	}
+	.top_company_contents{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		margin-top: 20%;
+	}
+	.top_company_title{
+		margin-left: 5%;
+	}
+	.top_company_title_mefar{
+		font-size: 55px;
+	}
+	.top_company_title img{
+		display: none;
+	}
+	.btntransform{
+		height: 25px;
+	}
+	.mefar_name_top{
+		font-size: 15px;
+		
+	}
+	.mefar_name_top::first-letter{
+		font-size: 30px;
+	}
+	.mefar_name_ja{
+		display: none;
+	}
+	.top_company_contents table{
+		width: 100%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	.smartphone_ja{
+        display: inline; /* インライン表示に変更 */
+        font-size: 10px;
+        color: #949494;
+    }
+}
+
+/*========================Service=======================*/
+#service{
+	height: 100vh;
+	width: 100%;
+}
+
+
+.service_info{
+	display: flex;
+}
+
+.top_service_left{
+	width: 40%;
+}
+
+.top_service_title{
+	margin-left: 20%;
+	margin-top: 10%;
+}
+
+.top_service_title p{
+	line-height: 25px;
+}
+
+.top_service_title img{
+	width: 500px;
+	margin-top: 50px;
+}
+
+.top_service_title_en{
+	font-size: 90px;
+}
+
+.top_service_title_ja{
+	font-size: 15px;
+	color: #949494;
+}
+
+.service_right{
+	width: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.service_right {
+    position: relative;
+}
+
+.service_right img {
+	width: 90%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+/*丸がボタンに変形する*/
+
+.service_button{
+    /*丸の基点とするためrelativeを指定*/
+	position: relative;
+    /*ボタンの形状*/	
+    display: inline-block;
+	padding:0 0 0 15px;
+	line-height: 50px;
+    text-decoration: none;
+    outline: none;
+	margin-top: 50px;
+	color: #333333;
+}
+
+/* 丸が動く */
+.service_button::before{
+	content:'';
+    /*絶対配置で丸の位置を決める*/
+	position:absolute;
+	left:0;
+	z-index: -1;
+    /*丸の形状*/
+	width:50px;
+	height:50px;
+	background:#ccc;
+	border-radius:25px;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の形状*/
+.service_button:hover::before{
+	width:125px;
+	background-color: #333;
+}
+
+.service_button:hover {
+    color: #ffffff; /* ホバー時のテキスト色 */
+}
+
+
+/* 矢印の形状 */
+.service_button::after{
+	position: absolute;
+    content: '';
+    top: 1.45em;
+    right: -15px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    transform: rotate(45deg);
+}
+
+.service_button:hover::after{
+	border-top: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+}
+
+.dokoroka_service_sumaho{
+	display: none;
+}
+
+
+@media screen and (max-width: 690px){
+	#service{
+		width: 100%;
+		height: 100%;
+		margin-bottom: 20%;
+	}
+	.service_info{
+		display: inline-block;
+		width: 100%;
+	}
+	.top_service_left{
+		width: 100%;
+	}
+	.service_right{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		margin-top: 20%;
+	}
+	.top_service_title{
+		margin-left: 5%;
+	}
+	.top_service_title_en{
+		font-size: 55px;
+	}
+	.service_button{
+		height: 25px;
+	}
+	
+	.service_right img {
+		position: static;
+		height: 100%;
+	}
+	.dokoroka_service{
+		display: none;
+	}
+	.dokoroka_service_sumaho{
+		display: inline;
+	}
+
+}
+
+/*===================================service.html============================*/
+
+
+.service_en{
+	font-size: 40px;
+	font-weight: 400;
+}
+
+.service_ja{
+	color: #949494;
+	font-size: 12px;
+}
+
+/*丸がボタンに変形する*/
+
+.main_service_button{
+    /*丸の基点とするためrelativeを指定*/
+	position: relative;
+    /*ボタンの形状*/	
+    display: inline-block;
+	padding:0 0 0 15px;
+	line-height: 50px;
+    text-decoration: none;
+    outline: none;
+	color: #333333;
+	margin-top: 15px;
+}
+
+/* 丸が動く */
+.main_service_button::before{
+	content:'';
+    /*絶対配置で丸の位置を決める*/
+	position:absolute;
+	left:0;
+	z-index: -1;
+    /*丸の形状*/
+	width:50px;
+	height:50px;
+	background:#ccc;
+	border-radius:25px;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の形状*/
+.main_service_button:hover::before{
+	width:130px;
+	background-color: #333;
+}
+
+/* 矢印の形状 */
+.main_service_button::after{
+	position: absolute;
+    content: '';
+    top: 1.45em;
+    right: -15px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    transform: rotate(45deg);
+}
+
+.main_service_button:hover::after{
+	border-top: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+}
+
+.main_service_button:hover {
+    color: #ffffff; /* ホバー時のテキスト色 */
+}
+
+#main_service{
+	height: 100vh;
+	width: 100%;
+}
+
+.service_left{
+	width: 50%;
+}
+
+.main_service_right{
+	width: 50%;
+}
+
+/*===================================News.html============================*/
+#news{
+	display: flex;
+	margin-bottom: 300px;
+}
+
+.html_title_news{
+	width: 30%;
+	position: fixed;
+}
+
+.html_title_news p{
+	line-height: 25px;
+}
+
+.news_contents{
+	padding-top: 50px;
+	padding-left: 25%;
+	width: 100%;
+}
+
+.news_contents_one{
+	line-height: 25px;
+	height: 130px;
+	border-bottom: 2px solid #949494;
+	display: flex;
+    align-items: center; /* 縦方向の中央揃え */
+}
+
+.news_contents_one_text{
+	align-items: center;
+}
+
+
+.news_contents_one_sentence{
+	line-height: 0;
+}
+
+.news_contents_one_text h3{
+	color: #333333;
+	line-height: normal;
+	margin: auto;
+}
+
+.news_contents_one_last{
+	width: 100vh;
+	line-height: 25px;
+	height: 130px;
+	border-top: 2px solid #949494;
+	border-bottom: 2px solid #949494;
+	display: flex;
+    align-items: center; /* 縦方向の中央揃え */
+}
+
+@media screen and (max-width: 1180px){
+	#news{
+		display: inline-block;
+	}
+	.html_title_news{
+		width: 100%;
+		position: unset;
+	}
+	.news_contents{
+		padding-left: 0;
+	}
+	}
+@media screen and (max-width: 585px){
+	.news_contents_one_text h3{
+		font-size: 17px;
+	}
+}
+
+/*===================================member.html============================*/
+#member_all{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 300px;
+}
+
+.member_one{
+	width: 200px;
+}
+
+.member_one img:hover{
+	transform: scale(1.1);
+	transition: 0.7s;
+	border-radius: 50%;
+}
+
+/*===================================about us.html============================*/
+#about_us{
+	width: 100%;
+}
+
+.company_info{
+	display: flex;
+	justify-content: center;
+}
+
+.company_info table{
+	width: 45%;
+}
+
+.comapny_info_title{
+	width: 50%;
+	text-align: center;
+	font-weight: 700;
+}
+
+.company_info_table tr{
+	display: flex;
+	align-items: center;
+	height: 80px;
+	border-bottom: 1px solid #333333;
+	width: 100%;
+}
+
+.company_info_table_smart{
+	display: none;
+}
+
+@media screen and (max-width: 830px){
+	.company_info_table{
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 829px) {
+	.company_info_table_smart{
+		display: inline;
+		display: flex;
+		justify-content: center;
+	}
+	.company_info{
+		justify-content: left;
+	}
+	.table_smart p{
+		text-align: left;
+		line-height: 30px;
+	}
+	.table_smart{
+		justify-content: center;
+		margin-top: 40px;
+		width: 90%;
+		
+	}
+
+	.table_smart p{
+		border-top: 1px solid #333333;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.smart_title{
+		font-size: 1.3rem;
+		color: #333333;
+		font-weight: 700;
+	}
+	.cmart_contents{
+		font-size: 1.5rem;
+		font-weight: 300;
+	}
+	.samrt_end{
+		border-bottom: 1px solid #333333;
+	}
+}
+
+/*タイムライン全体の設定*/
+.timeline{
+	width:100%;
+	margin:50px auto;
+	padding:0 30px;
+}
+
+.timeline li{
+    /*線の起点とするためrelativeを設定*/
+    position: relative;
+	list-style: none;
+	padding:0 0 20px 0;
+}
+
+.timeline dl{
+	margin:0 0 20px 3em;
+}
+
+/*絶対配置で線を設定*/
+.border-line {
+    /*線の位置*/
+	position: absolute;
+	left:0.2em;
+	top:0;
+	width:2px;/*線の太さ*/
+	height:0;/*はじめは高さを0に*/
+	background: #ccc;
+}
+
+/*タイムラインの見出し横の丸の位置と形状*/
+.timeline li::after{
+	content:'';
+	position: absolute;
+	top:0;
+	left:0;
+	width:10px;
+	height: 10px;
+	background:#666;
+	border-radius: 50%;
+}
+
+.comapny_history{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.company_logo {
+	margin-bottom: 30px;
+}
