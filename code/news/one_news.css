@@ -1,0 +1,155 @@
+/*=========================基礎設定====================*/
+body{
+	font-family: "Roboto", sans-serif;
+	color: #333333;
+	background-color: #f2f2f2;
+	margin: auto;
+}
+
+main{
+	font-family: "Roboto", sans-serif;
+    margin-left: 17%;
+	margin-right: 17%;
+	margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+@media screen and (max-width: 800px){
+    main{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+/*=========================news_top設定====================*/
+.news_top{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #bebebe;
+}
+
+.news_date{
+    font-size: 15px;
+}
+
+.news_title{
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.news_top span.news_date,
+.news_top h2.news_title {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.news_contents{
+    padding-top: 3px;
+}
+
+.news_contents p{
+    margin-bottom: 20px;
+}
+
+.news_contents_sub{
+    margin-top: 40px;
+}
+
+.news_sub_title{
+    border-bottom: 1px solid #bebebe;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.news_contents_sub h4,
+.news_contents_sub p {
+  margin: 0;
+  padding: 0;
+}
+
+.mark_meizan_table{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.mark_meizan_table td{
+    border-spacing : 20px;
+}
+
+.table_title{
+    text-align: left;
+    width: 100px;
+}
+
+.contents_info{
+    display: flex;
+    gap: 20px;
+}
+
+.mark_googlemap{
+    height: 200px;
+    overflow: hidden; 
+}
+
+.mark_googlemap iframe{
+    height: 600px;
+    margin-top: -170px;
+}
+
+.mefar_info{
+    display: flex;
+    gap: 30px;
+}
+
+.mefar_table tr{
+    border-bottom: 1px solid #bebebe;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.mefar_table_title{
+    width: 100px;
+}
+
+@media screen and (max-width: 800px){
+    .contents_info{
+        display: inline;
+        gap: 0px;
+    }
+
+    .mark_twitter{
+        padding-top: 20px;
+    }
+    .mark_googlemap{
+        height: 200px;
+        overflow: hidden; 
+        width: 200px;
+    }
+    
+    .mark_googlemap iframe{
+        width: 200px;
+        height: 600px;
+        margin-top: -170px;
+    }
+}
+
+.table_link{
+    width: 200px;
+}
+
+.link_table{
+    width: 100%;
+}
+
+.news_link_ja{
+    display: none;
+}
+
+@media screen and (max-width: 800px){
+    .news_link_url{
+        display: none;
+    }
+    .news_link_ja{
+        display: inline;
+    }
+}
